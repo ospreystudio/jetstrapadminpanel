@@ -35,6 +35,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::prefix('admin')->name('admin')->middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard.index');
 });
