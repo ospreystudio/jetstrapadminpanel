@@ -2,10 +2,10 @@
     <div class="dark-mode">
         <div class="wrapper">
 
-            <!-- Preloader -->
-            <!--        <div class="preloader flex-column justify-content-center align-items-center">-->
-            <!--            <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">-->
-            <!--        </div>-->
+             Preloader
+                    <div class="preloader flex-column justify-content-center align-items-center">
+                        <img class="animation__wobble" src="../../../storage/app/public/images/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+                    </div>
 
             <!-- Navbar -->
             <Navbar />
@@ -56,6 +56,23 @@ export default {
         Footer,
         Navbar,
         Sidebar
+    },
+    mounted() {
+      this.init()
+    },
+    methods: {
+        init() {
+            let SELECTOR_LOADER = '.loader'
+            setTimeout(() =>{
+                let $loader = $(SELECTOR_LOADER)
+                if($loader) {
+                    $loader.css('height', 0)
+                    setTimeout(() =>{
+                        $loader.children().hide()
+                    }, 2000)
+                }
+            },2000)
+        }
     }
 }
 </script>
